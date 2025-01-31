@@ -1,0 +1,7 @@
+Time resolution is 1 ps
+Failure: FIN DE SIMULATION
+Time: 1000004 us  Iteration: 0  Process: /test_pulse_gen/P_TEST  File: /nfs/home/m1info4/Documents/M1/Simu_Syth_Materiels/exos_VHDL/exodiapo65/test_pulse_gen.vhd
+$finish called at time : 1000004 us : File "/nfs/home/m1info4/Documents/M1/Simu_Syth_Materiels/exos_VHDL/exodiapo65/test_pulse_gen.vhd" Line 93
+Failure: FIN DE SIMULATION
+Time: 2000008 us  Iteration: 0  Process: /test_pulse_gen/P_TEST  File: /nfs/home/m1info4/Documents/M1/Simu_Syth_Materiels/exos_VHDL/exodiapo65/test_pulse_gen.vhd
+$finish called at time : 2000008 us : File "/nfs/home/m1info4/Documents/M1/Simu_Syth_Materiels/exos_VHDL/exodiapo65/test_pulse_gen.vhd" Line 93

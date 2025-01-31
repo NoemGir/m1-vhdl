@@ -54,7 +54,7 @@ end process P_TIMEOUT;
 --------------------------------------------------
 -- instantiation et mapping du composant registres
 pgen0 : entity work.pulse_gen(behaviour)
-			generic map (10) -- veux dire que max-cpt = 10 pour pas vraiment attendre 1 s. 
+		--	generic map (10) -- veux dire que max-cpt = 10 pour pas vraiment attendre 1 s. 
 			-- attention le prof fait expres de le mettre en commentaire
 			port map (MCLK => E_CLK, -- assigne signaux ( MCLOCK, RST, P ) a un port ( E_CLK, E_RST, E_P) définis avant
                         RST => E_RST, -- dans pulse_gen on va voir MCLK et RST et P 

@@ -27,22 +27,24 @@ architecture behaviour of pulse_gen is
 
 begin
 
-ppulse: process(MCLK,RST) --RST et MCLK dans la liste de sensibilité ( = process evalué quand un des deux est changé ) 
+ppulse: process(MCLK) --RST et MCLK dans la liste de sensibilité ( = process evalué quand un des deux est changé ) 
     variable cpt: natural range 0 to MAX_CPT - 1 ; -- cpt est un entier qui va avoir comme valeur entre 0 et  999 999 ( inclu ) 
 begin
-    if( RST='0' ) then
-        cpt:=0;
-        P <= '0';
-    elsif rising_edge(MCLK) then
-    	p <= '0'; -- si on le ne met pas dans tous les cas alors ca va creer un latch pour se rappeler de la valeur qu'il avait avant
-		if cpt = 0 then 
-			P <= '1';
-		end if;
-		if cpt = MAX_CPT -1 then
-			cpt := 0;
-		else
-			cpt := cpt + 1;
-		end if;
+    if rising_edge(MCLK) then
+        if( RST='0' ) then
+            cpt:=0;
+            P <= '0';
+        else
+    	   p <= '0'; -- si on le ne met pas dans tous les cas alors ca va creer un latch pour se rappeler de la valeur qu'il avait avant
+            if cpt = 0 then 
+                P <= '1';
+            end if;
+            if cpt = MAX_CPT -1 then
+                cpt := 0;
+            else
+                cpt := cpt + 1;
+            end if;
+        end if;
 	end if;
 end process ppulse;
 
