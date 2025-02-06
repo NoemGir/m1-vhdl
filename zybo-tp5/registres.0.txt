@@ -32,11 +32,11 @@ entity registres is
 		W, CLK, RST : in std_logic;
 
 		-- bus d'adresse et donnees
-		ADR_A, ADR_B, ADR_W : in std_logic_vector(ABUS_WIDTH-1 downto 0);
-		D : in std_logic_vector(DBUS_WIDTH-1 downto 0);
+		ADR_A, ADR_B, ADR_W : in std_logic_vector(2 to 0);
+		D : in std_logic_vector(31 to 0);
 
 		-- Ports de sortie
-		QA, QB : out std_logic_vector(DBUS_WIDTH-1 downto 0)
+		QA, QB : out std_logic_vector(31 to 0)
     );
 end registres;
 
@@ -58,10 +58,8 @@ begin
 
 ---------------------------------
 -- affectation des bus en lecture
-QA <= REGS (conv_integer(ADR_A)) when ADR_A /= conv_std_logic_vector(0, ABUS_WIDTH) else
-	 (others =>'0');
-QB <= REGS (conv_integer(ADR_B)) when ADR_B /= conv_std_logic_vector(0, ABUS_WIDTH) else
-	 (others =>'0');
+QA <= REGS (conv_integer(ADR_A)) when ADR_A /= (others =>'0') else conv_std_logic_vector(0, ABUS_WIDTH);
+QB <= REGS (conv_integer(ADR_B)) when ADR_B /= (others =>'0') else conv_std_logic_vector(0, ABUS_WIDTH);
 
 -----------------
 -- Process P_REGS
